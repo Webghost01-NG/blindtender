@@ -76,6 +76,11 @@ async function api(request, response, url) {
     sendJson(response, 200, service.supplierEvidence(evidenceMatch[1]));
     return true;
   }
+  const challengeMatch = url.pathname.match(/^\/api\/challenges\/omission\/([a-z0-9-]+)$/);
+  if (request.method === "GET" && challengeMatch) {
+    sendJson(response, 200, service.omissionChallenge(challengeMatch[1]));
+    return true;
+  }
   if (request.method === "GET" && url.pathname === "/api/audit-package") {
     sendJson(response, 200, service.auditPackage());
     return true;

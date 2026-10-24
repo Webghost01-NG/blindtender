@@ -136,6 +136,22 @@ export class TenderService {
     };
   }
 
+  omissionChallenge(bidId) {
+    if (!this.closure) throw new Error("Tender must be closed before challenging inclusion");
+    const evidence = this.supplierEvidence(bidId);
+    return {
+      bidId,
+      conclusion: evidence.receiptValid && !evidence.included ? "acknowledged-but-not-included" : "no-omission-detected",
+      eventId: this.eventConfig.eventId,
+      included: evidence.included,
+      manifestRoot: evidence.manifest.acceptedBidMerkleRoot,
+      proofValid: evidence.proofValid,
+      receipt: evidence.receipt,
+      receiptValid: evidence.receiptValid,
+      warning: "This report demonstrates an inconsistency; it does not automatically enforce inclusion.",
+    };
+  }
+
   auditPackage() {
     if (!this.award || !this.closure) throw new Error("Tender must be awarded before an audit package can be produced");
     return {

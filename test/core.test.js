@@ -73,6 +73,9 @@ test("omitted acknowledged bid has a valid receipt but no inclusion proof", () =
   assert.equal(evidence.receiptValid, true);
   assert.equal(evidence.included, false);
   assert.equal(evidence.proofValid, false);
+  const challenge = service.omissionChallenge("atlas-001");
+  assert.equal(challenge.conclusion, "acknowledged-but-not-included");
+  assert.match(challenge.warning, /does not automatically enforce inclusion/);
 });
 
 test("settlement must reference the exact immutable award hash", () => {
