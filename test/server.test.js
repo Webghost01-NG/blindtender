@@ -39,7 +39,9 @@ test("server rejects malformed audit verification packages", async (context) => 
     body: "{}",
   });
   assert.equal(response.status, 400);
-  assert.match((await response.json()).error, /operatorSigningKey|Cannot read/);
+  const body = await response.json();
+  assert.equal(body.code, "invalid-input");
+  assert.match(body.error, /operatorSigningKey|Cannot read/);
 });
 
 test("server requires JSON content type for state-changing routes", async (context) => {
@@ -52,7 +54,9 @@ test("server requires JSON content type for state-changing routes", async (conte
     body: "{}",
   });
   assert.equal(response.status, 400);
-  assert.equal((await response.json()).error, "Content-Type must be application/json");
+  const body = await response.json();
+  assert.equal(body.code, "invalid-input");
+  assert.equal(body.error, "Content-Type must be application/json");
 });
 
 test("server never exposes the confidential audit package over GET", async (context) => {

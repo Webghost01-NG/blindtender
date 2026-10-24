@@ -34,6 +34,12 @@ function sendJson(response, status, value) {
   response.end(JSON.stringify(value));
 }
 
+function sendError(response, error) {
+  const status = error instanceof SyntaxError || error instanceof TypeError ? 400 : 409;
+  const code = error instanceof SyntaxError ? "invalid-json" : error instanceof TypeError ? "invalid-input" : "state-conflict";
+  sendJson(response, status, { code, error: error.message });
+}
+
 async function readJson(request) {
   const contentType = request.headers["content-type"] ?? "";
   if (!contentType.toLowerCase().startsWith("application/json")) {
@@ -129,7 +135,7 @@ export function createBlindTenderServer() {
       }
       if (!(await staticFile(response, url.pathname))) sendJson(response, 404, { error: "Not found" });
     } catch (error) {
-      sendJson(response, error instanceof SyntaxError || error instanceof TypeError ? 400 : 409, { error: error.message });
+      sendError(response, error);
     }
   });
 }
