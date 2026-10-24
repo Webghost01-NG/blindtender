@@ -1,0 +1,26 @@
+import assert from "node:assert/strict";
+import test from "node:test";
+import { createBlindTenderServer } from "../src/server.js";
+
+test("server exposes event rules and no-store API state", async (context) => {
+  const server = createBlindTenderServer();
+  await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
+  context.after(() => server.close());
+  const address = server.address();
+  const response = await fetch(`http://127.0.0.1:${address.port}/api/state`);
+  assert.equal(response.status, 200);
+  assert.equal(response.headers.get("cache-control"), "no-store");
+  const state = await response.json();
+  assert.equal(state.phase, "open");
+  assert.equal(state.event.eventId, "medical-supplies-2026");
+  assert.match(state.rulesHash, /^[a-f0-9]{64}$/);
+});
+
+test("server rejects unknown API routes", async (context) => {
+  const server = createBlindTenderServer();
+  await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
+  context.after(() => server.close());
+  const address = server.address();
+  const response = await fetch(`http://127.0.0.1:${address.port}/api/nope`);
+  assert.equal(response.status, 404);
+});
