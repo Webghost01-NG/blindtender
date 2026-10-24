@@ -35,6 +35,10 @@ function sendJson(response, status, value) {
 }
 
 async function readJson(request) {
+  const contentType = request.headers["content-type"] ?? "";
+  if (!contentType.toLowerCase().startsWith("application/json")) {
+    throw new TypeError("Content-Type must be application/json");
+  }
   const chunks = [];
   let length = 0;
   for await (const chunk of request) {
