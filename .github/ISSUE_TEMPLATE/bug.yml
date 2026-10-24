@@ -1,0 +1,38 @@
+name: Bug report
+description: Report a reproducible issue in the demonstration app.
+title: "bug: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Never include real supplier bids, personal data, mnemonics, wallet identities, viewing keys, or spending keys.
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: Describe the observed behavior and the behavior you expected.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      placeholder: 1. Start the demo…
+    validations:
+      required: true
+  - type: dropdown
+    id: network
+    attributes:
+      label: Network context
+      options:
+        - Not related to settlement
+        - Local regtest
+        - Public testnet
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment and logs
+      description: Include Node version and redacted logs. Remove addresses and identifiers if they can identify you.
