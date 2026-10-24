@@ -2,4 +2,10 @@
 .runtime/
 .nivyr/
 .impeccable/questions/
+.impeccable/review/
+.impeccable/direction-options.json
+.impeccable/build/comp-grid.png
+.impeccable/build/font-match/
+.impeccable/mocks/decision/
+.impeccable/mocks/option-1.webp.png
 node_modules/
