@@ -152,6 +152,20 @@ export class TenderService {
     };
   }
 
+  verifyOpening({ bidId, bid, salt }) {
+    const submission = this.submissions.find((entry) => entry.bidId === bidId);
+    if (!submission) throw new Error("Unknown bid");
+    const computedCommitment = bidCommitment(bid, salt);
+    return {
+      bidId,
+      committed: submission.commitment,
+      computed: computedCommitment,
+      conclusion: computedCommitment === submission.commitment ? "opening-matches-commitment" : "opening-was-modified",
+      matches: computedCommitment === submission.commitment,
+      receiptValid: this.verifyReceipt(submission.receipt),
+    };
+  }
+
   auditPackage() {
     if (!this.award || !this.closure) throw new Error("Tender must be awarded before an audit package can be produced");
     return {

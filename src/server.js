@@ -89,6 +89,10 @@ async function api(request, response, url) {
     sendJson(response, 200, verifyAuditPackage(await readJson(request)));
     return true;
   }
+  if (request.method === "POST" && url.pathname === "/api/challenges/tamper") {
+    sendJson(response, 200, service.verifyOpening(await readJson(request)));
+    return true;
+  }
   if (request.method === "POST" && url.pathname === "/api/settlement") {
     sendJson(response, 201, service.recordSettlement(await readJson(request)));
     return true;

@@ -63,6 +63,17 @@ test("tampered encrypted bid is rejected at opening", () => {
   assert.throws(() => service.close(), /Commitment mismatch/);
 });
 
+test("supplier can verify whether disclosed opening data was modified", () => {
+  const service = new TenderService();
+  const original = bid("atlas-001", 4_820_000);
+  const salt = randomBytes(32).toString("hex");
+  service.submit({ bidId: original.bidId, commitment: bidCommitment(original, salt), envelope: encryptBidForOperator(original, salt, service.keys.encryptionPublicKey) });
+  assert.equal(service.verifyOpening({ bidId: original.bidId, bid: original, salt }).matches, true);
+  const report = service.verifyOpening({ bidId: original.bidId, bid: { ...original, amountMinor: 4_800_000 }, salt });
+  assert.equal(report.matches, false);
+  assert.equal(report.conclusion, "opening-was-modified");
+});
+
 test("omitted acknowledged bid has a valid receipt but no inclusion proof", () => {
   const service = new TenderService();
   const omitted = submit(service, bid("atlas-001", 4_820_000));
