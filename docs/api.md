@@ -21,3 +21,5 @@ Mutation requests require `Content-Type: application/json`. Errors have a stable
 ## Browser submission
 
 `public/crypto.js` exports `commitBid` and `sealBidForOperator`. It produces the same SHA-256 commitment format as the server, encrypts canonical bid material with AES-256-GCM, and wraps the AES key with the event RSA-OAEP public key. A supplier should retain the salt and signed receipt privately.
+
+`public/receipt.js` builds a private receipt bundle containing the original bid, salt, commitment, signed acknowledgment, and rules hash. The bundle is intended for the supplier to download and keep. It should not be uploaded to the public evidence endpoint because it reveals confidential bid terms.
