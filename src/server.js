@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import { extname, join, normalize, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { TenderService } from "./lib/tender-service.js";
+import { verifyAuditPackage } from "./lib/verify.js";
 
 const projectRoot = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const publicRoot = join(projectRoot, "public");
@@ -77,6 +78,10 @@ async function api(request, response, url) {
   }
   if (request.method === "GET" && url.pathname === "/api/audit-package") {
     sendJson(response, 200, service.auditPackage());
+    return true;
+  }
+  if (request.method === "POST" && url.pathname === "/api/verify-audit-package") {
+    sendJson(response, 200, verifyAuditPackage(await readJson(request)));
     return true;
   }
   if (request.method === "POST" && url.pathname === "/api/settlement") {

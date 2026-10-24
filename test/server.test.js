@@ -27,3 +27,17 @@ test("server rejects unknown API routes", async (context) => {
   const response = await fetch(`http://127.0.0.1:${address.port}/api/nope`);
   assert.equal(response.status, 404);
 });
+
+test("server rejects malformed audit verification packages", async (context) => {
+  const server = createBlindTenderServer();
+  await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
+  context.after(() => server.close());
+  const address = server.address();
+  const response = await fetch(`http://127.0.0.1:${address.port}/api/verify-audit-package`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: "{}",
+  });
+  assert.equal(response.status, 400);
+  assert.match((await response.json()).error, /operatorSigningKey|Cannot read/);
+});
