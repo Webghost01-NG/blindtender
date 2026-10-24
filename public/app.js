@@ -29,6 +29,8 @@ const runtime = {
   latestClosure: null,
   animateStageChange: false,
   omittedBidId: null,
+  closureDraftBidId: null,
+  confirmingClosure: false,
   supplierEvidence: null,
   auditResult: null,
   busy: false,
@@ -137,7 +139,6 @@ function listRows() {
     <li class="commitment-row">
       <span><span class="commitment-name">Commitment ${String(index + 1).padStart(2, "0")}</span><span class="commitment-meta">Received ${escapeHtml(formatDate(entry.receipt.payload.receivedAt))}</span></span>
       <span class="commitment-status">Signed receipt</span>
-      <button type="button" class="text-button" data-action="download-receipt" data-index="${index}">Save receipt</button>
     </li>`).join("");
 }
 
@@ -191,7 +192,7 @@ function renderSupplierSubmissions() {
       <div class="field"><label for="delivery-days">Delivery time</label><input id="delivery-days" name="deliveryDays" type="number" min="1" max="365" step="1" value="14" required></div>
       <div class="field--wide"><button type="submit" class="button"${disabled ? " disabled" : ""}>Seal and submit offer</button></div>
     </form>`}
-    ${lastReceipt ? `<div class="result-block"><p class="result-label">Latest signed receipt</p><p class="result-meta">Receipt ${escapeHtml(lastReceipt.receipt.payload.sequence)} · ${escapeHtml(formatDate(lastReceipt.receipt.payload.receivedAt))}</p><p class="result-meta">Your private bundle was prepared for download when you submitted.</p></div>` : ""}
+    ${lastReceipt ? `<div class="result-block"><p class="result-label">Latest signed receipt</p><p class="result-meta">Receipt ${escapeHtml(lastReceipt.receipt.payload.sequence)} · ${escapeHtml(formatDate(lastReceipt.receipt.payload.receivedAt))}</p><p class="result-meta">This private bundle contains your bid and salt. Keep it for your records.</p><div class="button-row">${button("Download private receipt bundle", "download-own-receipt", { secondary: true, small: true })}</div></div>` : ""}
     <p class="inline-note">Do not share your receipt bundle publicly; it contains your bid and salt for private verification.</p>`;
 }
 
@@ -220,13 +221,21 @@ function renderClosure() {
     ? "Close when submissions are complete. This synthetic demo records, but does not enforce, its configured deadline."
     : "The signed closure manifest and Merkle root are now fixed.");
   const count = runtime.state.receiptCount;
-  const omittedCheckbox = runtime.submissions.length > 1
-    ? `<details class="disclosure"><summary>Omission challenge demo</summary><div class="disclosure-body"><label class="check-row"><input type="checkbox" id="simulate-omission"${runtime.omittedBidId ? " checked" : ""}><span>Leave the last acknowledged synthetic bid out of the accepted set to demonstrate a supplier challenge. This is a deliberate failure scenario.</span></label></div></details>`
+  const omittedCheckbox = open && !runtime.confirmingClosure && runtime.submissions.length > 1
+    ? `<details class="disclosure"><summary>Omission challenge demo</summary><div class="disclosure-body"><label class="check-row"><input type="checkbox" id="simulate-omission"${runtime.closureDraftBidId ? " checked" : ""}><span>Leave the last acknowledged synthetic bid out of the accepted set to demonstrate a supplier challenge. This is a deliberate failure scenario.</span></label></div></details>`
     : "";
+  const closureAction = runtime.confirmingClosure
+    ? `<div class="result-block closure-confirmation" role="group" aria-labelledby="closure-confirmation-title">
+      <h3 id="closure-confirmation-title" tabindex="-1">Confirm tender closure</h3>
+      <p class="result-meta">${count} acknowledged ${count === 1 ? "receipt" : "receipts"}; ${count - (runtime.closureDraftBidId ? 1 : 0)} will be included in the signed accepted set.</p>
+      <p class="result-meta">${runtime.closureDraftBidId ? "Omission challenge selected: one synthetic bid will be left out deliberately." : "No acknowledged bids are selected for omission."}</p>
+      <div class="button-row">${button("Confirm and sign accepted set", "close-tender")}${button("Go back", "cancel-close", { secondary: true })}</div>
+    </div>`
+    : `<div class="button-row">${button(open ? "Review before closing" : "View award decision", open ? "request-close" : "go-award", { disabled: open && count === 0 })}</div>`;
   elements.content.innerHTML = `
     <div class="section-heading"><h2>Submission window</h2><span class="count-label">${count} ${count === 1 ? "receipt" : "receipts"} acknowledged</span></div>
     <ul class="commitment-list">${listRows()}</ul>
-    <div class="button-row">${button(open ? "Close and sign the accepted set" : "View award decision", open ? "close-tender" : "go-award", { disabled: open && count === 0 })}</div>
+    ${closureAction}
     <p class="inline-note">The operator can read bid details during evaluation. Public observers see the signed root, not the bids. This synthetic event can be closed manually before its configured deadline.</p>
     ${manifestDisclosure}
     ${omittedCheckbox}`;
@@ -478,12 +487,13 @@ async function loadSamples() {
 }
 
 async function closeTender() {
-  const simulateOmission = document.querySelector("#simulate-omission")?.checked ?? false;
-  const omitted = simulateOmission ? runtime.submissions.at(-1)?.bid.bidId : null;
+  const omitted = runtime.closureDraftBidId;
   const result = await api("/api/close", { method: "POST", body: JSON.stringify({ omitBidId: omitted }) });
   runtime.latestAward = result.award;
   runtime.latestClosure = result.closure;
   runtime.omittedBidId = omitted;
+  runtime.closureDraftBidId = null;
+  runtime.confirmingClosure = false;
   runtime.stage = "award";
   runtime.animateStageChange = true;
   await refreshState();
@@ -522,6 +532,10 @@ elements.content.addEventListener("submit", async (event) => {
 });
 
 elements.content.addEventListener("change", async (event) => {
+  if (event.target.id === "simulate-omission") {
+    runtime.closureDraftBidId = event.target.checked ? runtime.submissions.at(-1)?.bid.bidId ?? null : null;
+    return;
+  }
   if (event.target.id === "audit-package" && event.target.files?.[0]) {
     try {
       const audit = JSON.parse(await event.target.files[0].text());
@@ -541,9 +555,22 @@ elements.content.addEventListener("click", async (event) => {
   if (action === "go-closure") return changeStage("closure");
   if (action === "go-award") return changeStage("award");
   if (action === "go-settlement") return changeStage("settlement");
-  if (action === "download-receipt") {
-    const entry = runtime.submissions[Number(buttonElement.dataset.index)];
+  if (action === "download-own-receipt") {
+    const entry = runtime.submissions.filter((submission) => submission.submittedAs === "supplier").at(-1);
     if (entry) downloadPrivateReceipt(entry.bundle);
+    return;
+  }
+  if (action === "request-close") {
+    runtime.confirmingClosure = true;
+    render();
+    document.querySelector("#closure-confirmation-title")?.focus();
+    return;
+  }
+  if (action === "cancel-close") {
+    runtime.confirmingClosure = false;
+    render();
+    document.querySelector("[data-action='request-close']")?.focus();
+    announce("Closure cancelled. The accepted set is still open.");
     return;
   }
   if (action === "load-samples") return withButtonAction(buttonElement, "Sealing three bids…", loadSamples);
@@ -557,6 +584,8 @@ elements.content.addEventListener("click", async (event) => {
     runtime.latestAward = null;
     runtime.latestClosure = null;
     runtime.omittedBidId = null;
+    runtime.closureDraftBidId = null;
+    runtime.confirmingClosure = false;
     runtime.supplierEvidence = null;
     runtime.auditResult = null;
     runtime.animateStageChange = true;

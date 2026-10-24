@@ -299,7 +299,7 @@ h1 {
 
 .commitment-row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 16px;
   min-height: 62px;
@@ -444,6 +444,14 @@ h1 {
   border-bottom: 1px solid var(--line);
 }
 
+.closure-confirmation h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 650;
+}
+
+.closure-confirmation .result-meta + .result-meta { margin-top: 7px; }
+
 .result-label { margin-bottom: 5px; color: var(--muted); font-size: 14px; font-weight: 590; }
 .result-title { margin-bottom: 5px; font-size: 25px; font-weight: 650; letter-spacing: -0.03em; }
 .result-meta { margin-bottom: 0; color: var(--muted); font-size: 15px; }
@@ -540,7 +548,6 @@ h1 {
   .stage-intro { font-size: 15px; }
   .rule-list li, .evidence-row { grid-template-columns: 1fr; gap: 2px; padding: 12px 0; }
   .commitment-row { grid-template-columns: minmax(0, 1fr) auto; gap: 9px; padding: 10px 0; }
-  .commitment-row .text-button { grid-column: 1 / -1; justify-self: start; }
   .commitment-name { font-size: 14px; }
   .commitment-meta { font-size: 13px; }
   .form-grid { grid-template-columns: 1fr; gap: 15px; }
