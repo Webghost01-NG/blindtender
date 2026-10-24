@@ -16,6 +16,7 @@ export class TenderService {
     this.closure = null;
     this.award = null;
     this.settlement = null;
+    this.settlementHistory = [];
     this.eventConfig = {
       awardRule: "lowest-valid-price",
       canonicalizationVersion: "blindtender.c14n.v1",
@@ -41,6 +42,7 @@ export class TenderService {
       receiptCount: this.submissions.length,
       rulesHash: this.rulesHash,
       settlement: this.settlement,
+      settlementHistory: this.settlementHistory,
     };
   }
 
@@ -167,6 +169,11 @@ export class TenderService {
     if (!['testnet', 'regtest'].includes(input.network)) throw new TypeError("Settlement network must be testnet or regtest");
     if (!/^[a-f0-9]{64}$/.test(input.transactionId ?? "")) throw new TypeError("Invalid settlement transaction ID");
     if (input.state === "detected-by-recipient" && input.memoMatched !== true) throw new Error("Recipient detection requires a matching private memo");
+    const previousState = this.settlement?.payload.state ?? null;
+    const expectedState = states[previousState === null ? 0 : states.indexOf(previousState) + 1];
+    if (input.state !== expectedState) {
+      throw new Error(`Settlement transition must be ${previousState ?? "not-started"} → ${expectedState ?? "complete"}`);
+    }
     if (input.awardDecisionHash !== this.award.awardDecisionHash) throw new Error("Settlement references a different award");
     const payload = {
       awardDecisionHash: input.awardDecisionHash,
@@ -181,6 +188,7 @@ export class TenderService {
       payload,
       signature: signObject("blindtender:settlement-record:v1", payload, this.keys.signingPrivateKey),
     };
+    this.settlementHistory.push(this.settlement);
     return this.settlement;
   }
 }

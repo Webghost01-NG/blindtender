@@ -79,9 +79,23 @@ test("settlement must reference the exact immutable award hash", () => {
   const service = new TenderService();
   submit(service, bid("atlas-001", 4_820_000));
   const { award } = service.close();
-  assert.throws(() => service.recordSettlement({ awardDecisionHash: "0".repeat(64), memoMatched: true, network: "testnet", state: "confirmed", transactionId: "1".repeat(64) }), /different award/);
+  assert.throws(() => service.recordSettlement({ awardDecisionHash: "0".repeat(64), memoMatched: false, network: "testnet", state: "created", transactionId: "1".repeat(64) }), /different award/);
+  for (const state of ["created", "broadcast", "mined", "confirmed"]) {
+    service.recordSettlement({ awardDecisionHash: award.awardDecisionHash, memoMatched: false, network: "testnet", state, transactionId: "1".repeat(64) });
+  }
   const record = service.recordSettlement({ awardDecisionHash: award.awardDecisionHash, memoMatched: true, network: "testnet", state: "detected-by-recipient", transactionId: "1".repeat(64) });
   assert.equal(record.payload.awardDecisionHash, award.awardDecisionHash);
+  assert.equal(service.settlementHistory.length, 5);
+});
+
+test("settlement lifecycle refuses skipped or regressed states", () => {
+  const service = new TenderService();
+  submit(service, bid("atlas-001", 4_820_000));
+  const { award } = service.close();
+  const input = { awardDecisionHash: award.awardDecisionHash, memoMatched: false, network: "regtest", transactionId: "1".repeat(64) };
+  assert.throws(() => service.recordSettlement({ ...input, state: "broadcast" }), /not-started → created/);
+  service.recordSettlement({ ...input, state: "created" });
+  assert.throws(() => service.recordSettlement({ ...input, state: "created" }), /created → broadcast/);
 });
 
 test("restricted audit package contains sufficient inputs to recompute the award", () => {
