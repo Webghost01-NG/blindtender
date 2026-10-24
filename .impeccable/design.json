@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-24T18:39:11Z",
+  "generatedAt": "2026-10-24T18:49:23Z",
   "title": "Design System: BlindTender",
   "extensions": {
     "colorMeta": {
@@ -8,70 +8,186 @@
         "role": "primary",
         "displayName": "Working Ink",
         "canonical": "#171717",
-        "tonalRamp": ["oklch(15% 0 0)", "oklch(26.4% 0 0)", "oklch(37.9% 0 0)", "oklch(49.3% 0 0)", "oklch(60.7% 0 0)", "oklch(72.1% 0 0)", "oklch(83.6% 0 0)", "oklch(95% 0 0)"]
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(26.4% 0 0)",
+          "oklch(37.9% 0 0)",
+          "oklch(49.3% 0 0)",
+          "oklch(60.7% 0 0)",
+          "oklch(72.1% 0 0)",
+          "oklch(83.6% 0 0)",
+          "oklch(95% 0 0)"
+        ]
       },
       "muted": {
         "role": "neutral",
         "displayName": "Reading Gray",
         "canonical": "#5e5e5e",
-        "tonalRamp": ["oklch(15% 0 0)", "oklch(26.4% 0 0)", "oklch(37.9% 0 0)", "oklch(49.3% 0 0)", "oklch(60.7% 0 0)", "oklch(72.1% 0 0)", "oklch(83.6% 0 0)", "oklch(95% 0 0)"]
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(26.4% 0 0)",
+          "oklch(37.9% 0 0)",
+          "oklch(49.3% 0 0)",
+          "oklch(60.7% 0 0)",
+          "oklch(72.1% 0 0)",
+          "oklch(83.6% 0 0)",
+          "oklch(95% 0 0)"
+        ]
       },
       "soft": {
         "role": "neutral",
         "displayName": "Quiet Gray",
         "canonical": "#737370",
-        "tonalRamp": ["oklch(15% 0 0)", "oklch(26.4% 0 0)", "oklch(37.9% 0 0)", "oklch(49.3% 0 0)", "oklch(60.7% 0 0)", "oklch(72.1% 0 0)", "oklch(83.6% 0 0)", "oklch(95% 0 0)"]
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(26.4% 0 0)",
+          "oklch(37.9% 0 0)",
+          "oklch(49.3% 0 0)",
+          "oklch(60.7% 0 0)",
+          "oklch(72.1% 0 0)",
+          "oklch(83.6% 0 0)",
+          "oklch(95% 0 0)"
+        ]
       },
       "line": {
         "role": "neutral",
         "displayName": "Rule Gray",
         "canonical": "#dededc",
-        "tonalRamp": ["oklch(15% 0 0)", "oklch(26.4% 0 0)", "oklch(37.9% 0 0)", "oklch(49.3% 0 0)", "oklch(60.7% 0 0)", "oklch(72.1% 0 0)", "oklch(83.6% 0 0)", "oklch(95% 0 0)"]
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(26.4% 0 0)",
+          "oklch(37.9% 0 0)",
+          "oklch(49.3% 0 0)",
+          "oklch(60.7% 0 0)",
+          "oklch(72.1% 0 0)",
+          "oklch(83.6% 0 0)",
+          "oklch(95% 0 0)"
+        ]
       },
       "surface": {
         "role": "neutral",
         "displayName": "Paper Tint",
         "canonical": "#f6f6f4",
-        "tonalRamp": ["oklch(15% 0 0)", "oklch(26.4% 0 0)", "oklch(37.9% 0 0)", "oklch(49.3% 0 0)", "oklch(60.7% 0 0)", "oklch(72.1% 0 0)", "oklch(83.6% 0 0)", "oklch(95% 0 0)"]
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(26.4% 0 0)",
+          "oklch(37.9% 0 0)",
+          "oklch(49.3% 0 0)",
+          "oklch(60.7% 0 0)",
+          "oklch(72.1% 0 0)",
+          "oklch(83.6% 0 0)",
+          "oklch(95% 0 0)"
+        ]
       },
       "surface-dark": {
         "role": "neutral",
         "displayName": "Ground Gray",
         "canonical": "#ededeb",
-        "tonalRamp": ["oklch(15% 0 0)", "oklch(26.4% 0 0)", "oklch(37.9% 0 0)", "oklch(49.3% 0 0)", "oklch(60.7% 0 0)", "oklch(72.1% 0 0)", "oklch(83.6% 0 0)", "oklch(95% 0 0)"]
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(26.4% 0 0)",
+          "oklch(37.9% 0 0)",
+          "oklch(49.3% 0 0)",
+          "oklch(60.7% 0 0)",
+          "oklch(72.1% 0 0)",
+          "oklch(83.6% 0 0)",
+          "oklch(95% 0 0)"
+        ]
       },
       "white": {
         "role": "neutral",
         "displayName": "White",
         "canonical": "#fff",
-        "tonalRamp": ["oklch(15% 0 0)", "oklch(26.4% 0 0)", "oklch(37.9% 0 0)", "oklch(49.3% 0 0)", "oklch(60.7% 0 0)", "oklch(72.1% 0 0)", "oklch(83.6% 0 0)", "oklch(95% 0 0)"]
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(26.4% 0 0)",
+          "oklch(37.9% 0 0)",
+          "oklch(49.3% 0 0)",
+          "oklch(60.7% 0 0)",
+          "oklch(72.1% 0 0)",
+          "oklch(83.6% 0 0)",
+          "oklch(95% 0 0)"
+        ]
       },
       "focus": {
         "role": "neutral",
         "displayName": "Focus Black",
         "canonical": "#111",
-        "tonalRamp": ["oklch(15% 0 0)", "oklch(26.4% 0 0)", "oklch(37.9% 0 0)", "oklch(49.3% 0 0)", "oklch(60.7% 0 0)", "oklch(72.1% 0 0)", "oklch(83.6% 0 0)", "oklch(95% 0 0)"]
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(26.4% 0 0)",
+          "oklch(37.9% 0 0)",
+          "oklch(49.3% 0 0)",
+          "oklch(60.7% 0 0)",
+          "oklch(72.1% 0 0)",
+          "oklch(83.6% 0 0)",
+          "oklch(95% 0 0)"
+        ]
       }
     },
     "typographyMeta": {
-      "display": {"displayName": "Task Display", "purpose": "Current stage task heading; it scales down at the two mobile breakpoints."},
-      "headline": {"displayName": "Stage Heading", "purpose": "Stage content heading."},
-      "title": {"displayName": "Section Title", "purpose": "Compact section and result titles."},
-      "body": {"displayName": "Reading Text", "purpose": "Explanatory copy and form content."},
-      "label": {"displayName": "Evidence Label", "purpose": "Stage, field, status, and count labels."},
-      "action": {"displayName": "Action Text", "purpose": "Primary and secondary control labels."}
+      "display": {
+        "displayName": "Task Display",
+        "purpose": "Current stage task heading; it scales down at the two mobile breakpoints."
+      },
+      "headline": {
+        "displayName": "Stage Heading",
+        "purpose": "Stage content heading."
+      },
+      "title": {
+        "displayName": "Section Title",
+        "purpose": "Compact section and result titles."
+      },
+      "body": {
+        "displayName": "Reading Text",
+        "purpose": "Explanatory copy and form content."
+      },
+      "label": {
+        "displayName": "Evidence Label",
+        "purpose": "Stage, field, status, and count labels."
+      },
+      "action": {
+        "displayName": "Action Text",
+        "purpose": "Primary and secondary control labels."
+      }
     },
     "shadows": [],
     "motion": [
-      {"name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Stage progress line and workspace entrance."},
-      {"name": "control-feedback", "value": "120ms–180ms", "purpose": "Brief press and hover feedback on controls."},
-      {"name": "stage-progress", "value": "300ms", "purpose": "One finite width change as evidence progresses."},
-      {"name": "workspace-entry", "value": "240ms", "purpose": "Single subtle fade and 5px rise when the active stage changes."},
-      {"name": "reduced-motion", "value": "0.01ms; smooth scrolling disabled", "purpose": "Honor prefers-reduced-motion for animation, transition, and scrolling."}
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Stage progress line and workspace entrance."
+      },
+      {
+        "name": "control-feedback",
+        "value": "120ms–180ms",
+        "purpose": "Brief press and hover feedback on controls."
+      },
+      {
+        "name": "stage-progress",
+        "value": "300ms",
+        "purpose": "One finite width change as evidence progresses."
+      },
+      {
+        "name": "workspace-entry",
+        "value": "240ms",
+        "purpose": "Single subtle fade and 5px rise when the active stage changes."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "0.01ms; smooth scrolling disabled",
+        "purpose": "Honor prefers-reduced-motion for animation, transition, and scrolling."
+      }
     ],
     "breakpoints": [
-      {"name": "mobile", "value": "480px"},
-      {"name": "compact", "value": "760px"}
+      {
+        "name": "mobile",
+        "value": "480px"
+      },
+      {
+        "name": "compact",
+        "value": "760px"
+      }
     ]
   },
   "components": [
@@ -81,7 +197,7 @@
       "refersTo": "button-primary",
       "description": "The main action for the current tender step.",
       "html": "<button class=\"ds-btn-primary\">Confirm accepted set</button>",
-      "css": ".ds-btn-primary { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 8px; padding: 11px 19px; border: 1px solid var(--ink); border-radius: 999px; background: var(--ink); color: var(--white); cursor: pointer; font: 620 15px/1.2 Inter, ui-sans-serif, system-ui, sans-serif; text-decoration: none; transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease, transform 120ms ease; } .ds-btn-primary:hover { background: #393939; border-color: #393939; } .ds-btn-primary:active { transform: scale(0.98); } .ds-btn-primary:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; } .ds-btn-primary:disabled { border-color: #e3e3e0; background: #e3e3e0; color: #4f4f4c; cursor: not-allowed; transform: none; } @media (prefers-reduced-motion: reduce) { .ds-btn-primary { transition-duration: 0.01ms; } }"
+      "css": ".ds-btn-primary { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 8px; padding: 11px 19px; border: 1px solid var(--ink); border-radius: 999px; background: var(--ink); color: var(--white); cursor: pointer; font: 620 15px/1.2 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif; text-decoration: none; transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease, transform 120ms ease; } .ds-btn-primary:hover { background: #393939; border-color: #393939; } .ds-btn-primary:active { transform: scale(0.98); } .ds-btn-primary:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; } .ds-btn-primary:disabled { border-color: #e3e3e0; background: #e3e3e0; color: #4f4f4c; cursor: not-allowed; transform: none; } @media (prefers-reduced-motion: reduce) { .ds-btn-primary { transition-duration: 0.01ms; } }"
     },
     {
       "name": "Secondary Button",
@@ -89,61 +205,90 @@
       "refersTo": "button-secondary",
       "description": "A supporting action such as inspecting evidence or returning from confirmation.",
       "html": "<button class=\"ds-btn-secondary\">Inspect evidence</button>",
-      "css": ".ds-btn-secondary { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 8px; padding: 11px 19px; border: 1px solid var(--ink); border-radius: 999px; background: var(--white); color: var(--ink); cursor: pointer; font: 620 15px/1.2 Inter, ui-sans-serif, system-ui, sans-serif; text-decoration: none; transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease, transform 120ms ease; } .ds-btn-secondary:hover { background: var(--surface); border-color: var(--ink); color: var(--ink); } .ds-btn-secondary:active { transform: scale(0.98); } .ds-btn-secondary:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; } @media (prefers-reduced-motion: reduce) { .ds-btn-secondary { transition-duration: 0.01ms; } }"
+      "css": ".ds-btn-secondary { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 8px; padding: 11px 19px; border: 1px solid var(--ink); border-radius: 999px; background: var(--white); color: var(--ink); cursor: pointer; font: 620 15px/1.2 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif; text-decoration: none; transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease, transform 120ms ease; } .ds-btn-secondary:hover { background: var(--surface); border-color: var(--ink); color: var(--ink); } .ds-btn-secondary:active { transform: scale(0.98); } .ds-btn-secondary:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; } @media (prefers-reduced-motion: reduce) { .ds-btn-secondary { transition-duration: 0.01ms; } }"
     },
     {
       "name": "Role Switcher",
       "kind": "nav",
       "description": "A compact segmented control for the active demo role.",
       "html": "<div class=\"ds-role-group\" role=\"group\" aria-label=\"Choose a demo role\"><button class=\"ds-role\" aria-pressed=\"false\">Supplier</button><button class=\"ds-role\" aria-pressed=\"true\">Buyer</button><button class=\"ds-role\" aria-pressed=\"false\">Auditor</button></div>",
-      "css": ".ds-role-group { display: flex; align-items: center; padding: 4px; border: 1px solid var(--line); border-radius: 999px; background: var(--white); } .ds-role { min-height: 38px; padding: 7px 15px; border: 0; border-radius: 999px; background: transparent; color: var(--muted); cursor: pointer; font: 580 14px/1.4 Inter, ui-sans-serif, system-ui, sans-serif; transition: color 180ms ease, background-color 180ms ease, transform 120ms ease; } .ds-role:hover { color: var(--ink); } .ds-role:active { transform: scale(0.98); } .ds-role[aria-pressed=\"true\"] { background: var(--ink); color: var(--white); } .ds-role:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; } @media (prefers-reduced-motion: reduce) { .ds-role { transition-duration: 0.01ms; } }"
+      "css": ".ds-role-group { display: flex; align-items: center; padding: 4px; border: 1px solid var(--line); border-radius: 999px; background: var(--white); } .ds-role { min-height: 38px; padding: 7px 15px; border: 0; border-radius: 999px; background: transparent; color: var(--muted); cursor: pointer; font: 580 14px/1.4 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif; transition: color 180ms ease, background-color 180ms ease, transform 120ms ease; } .ds-role:hover { color: var(--ink); } .ds-role:active { transform: scale(0.98); } .ds-role[aria-pressed=\"true\"] { background: var(--ink); color: var(--white); } .ds-role:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; } @media (prefers-reduced-motion: reduce) { .ds-role { transition-duration: 0.01ms; } }"
     },
     {
       "name": "Five-Stage Evidence Thread",
       "kind": "nav",
       "description": "A persistent progress line for rules, bids, closure, award, and payment.",
       "html": "<nav class=\"ds-stage-nav\" aria-label=\"Tender stages\"><ol class=\"ds-stage-list\"><li><button class=\"ds-stage ds-stage--complete\"><span class=\"ds-stage-dot\"></span>Rules</button></li><li><button class=\"ds-stage ds-stage--complete\"><span class=\"ds-stage-dot\"></span>Bids</button></li><li><button class=\"ds-stage\" aria-current=\"step\"><span class=\"ds-stage-dot\"></span>Closure</button></li><li><button class=\"ds-stage\"><span class=\"ds-stage-dot\"></span>Award</button></li><li><button class=\"ds-stage\"><span class=\"ds-stage-dot\"></span>Payment</button></li></ol><span class=\"ds-stage-progress\" aria-hidden=\"true\"></span></nav>",
-      "css": ".ds-stage-nav { position: relative; } .ds-stage-list { position: relative; z-index: 1; display: flex; justify-content: space-between; margin: 0; padding: 0; list-style: none; } .ds-stage-list li { width: 20%; } .ds-stage-progress { position: absolute; top: 14px; right: calc(20% - 7px); left: 7px; height: 1px; background: var(--line); } .ds-stage-progress::after { display: block; width: 50%; height: 1px; background: var(--ink); content: \"\"; transform-origin: left center; transition: width 300ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-stage { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding: 3px 0; border: 0; background: transparent; color: var(--soft); cursor: pointer; font: 570 14px/1.4 Inter, ui-sans-serif, system-ui, sans-serif; } .ds-stage:hover, .ds-stage[aria-current=\"step\"] { color: var(--ink); } .ds-stage[aria-current=\"step\"] { font-weight: 680; } .ds-stage.ds-stage--complete { color: var(--muted); } .ds-stage-dot { width: 14px; height: 14px; border: 1.5px solid #8b8b88; border-radius: 50%; background: var(--white); } .ds-stage[aria-current=\"step\"] .ds-stage-dot, .ds-stage.ds-stage--complete .ds-stage-dot { border-color: var(--ink); background: var(--ink); } .ds-stage[aria-current=\"step\"] .ds-stage-dot { box-shadow: 0 0 0 4px #e5e5e3; } .ds-stage:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; } @media (prefers-reduced-motion: reduce) { .ds-stage-progress::after { transition-duration: 0.01ms; } }"
+      "css": ".ds-stage-nav { position: relative; } .ds-stage-list { position: relative; z-index: 1; display: flex; justify-content: space-between; margin: 0; padding: 0; list-style: none; } .ds-stage-list li { width: 20%; } .ds-stage-progress { position: absolute; top: 14px; right: calc(20% - 7px); left: 7px; height: 1px; background: var(--line); } .ds-stage-progress::after { display: block; width: 50%; height: 1px; background: var(--ink); content: \"\"; transform-origin: left center; transition: width 300ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-stage { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding: 3px 0; border: 0; background: transparent; color: var(--soft); cursor: pointer; font: 570 14px/1.4 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif; } .ds-stage:hover, .ds-stage[aria-current=\"step\"] { color: var(--ink); } .ds-stage[aria-current=\"step\"] { font-weight: 680; } .ds-stage.ds-stage--complete { color: var(--muted); } .ds-stage-dot { width: 14px; height: 14px; border: 1.5px solid #8b8b88; border-radius: 50%; background: var(--white); } .ds-stage[aria-current=\"step\"] .ds-stage-dot, .ds-stage.ds-stage--complete .ds-stage-dot { border-color: var(--ink); background: var(--ink); } .ds-stage[aria-current=\"step\"] .ds-stage-dot { box-shadow: 0 0 0 4px #e5e5e3; } .ds-stage:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; } @media (prefers-reduced-motion: reduce) { .ds-stage-progress::after { transition-duration: 0.01ms; } }"
     },
     {
       "name": "Ruled Evidence Rows",
       "kind": "custom",
       "description": "A border-led list for receipts, commitments, or rule values.",
       "html": "<ul class=\"ds-evidence-list\"><li><span class=\"ds-evidence-label\">Commitment 01</span><span class=\"ds-evidence-value\">Signed receipt</span></li><li><span class=\"ds-evidence-label\">Commitment 02</span><span class=\"ds-evidence-value\">Signed receipt</span></li></ul>",
-      "css": ".ds-evidence-list { margin: 0; padding: 0; list-style: none; } .ds-evidence-list li { display: grid; grid-template-columns: minmax(145px, 0.8fr) minmax(0, 1.5fr); gap: 24px; padding: 15px 0; border-top: 1px solid var(--line); } .ds-evidence-list li:last-child { border-bottom: 1px solid var(--line); } .ds-evidence-label { color: var(--muted); font: 400 15px/1.5 Inter, ui-sans-serif, system-ui, sans-serif; } .ds-evidence-value { color: var(--ink); font: 590 15px/1.5 Inter, ui-sans-serif, system-ui, sans-serif; } @media (max-width: 480px) { .ds-evidence-list li { grid-template-columns: 1fr; gap: 2px; padding: 12px 0; } }"
+      "css": ".ds-evidence-list { margin: 0; padding: 0; list-style: none; } .ds-evidence-list li { display: grid; grid-template-columns: minmax(145px, 0.8fr) minmax(0, 1.5fr); gap: 24px; padding: 15px 0; border-top: 1px solid var(--line); } .ds-evidence-list li:last-child { border-bottom: 1px solid var(--line); } .ds-evidence-label { color: var(--muted); font: 400 15px/1.5 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif; } .ds-evidence-value { color: var(--ink); font: 590 15px/1.5 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif; } @media (max-width: 480px) { .ds-evidence-list li { grid-template-columns: 1fr; gap: 2px; padding: 12px 0; } }"
     },
     {
       "name": "Text Field",
       "kind": "input",
       "description": "A labeled form control with a quiet but visible focus state.",
       "html": "<label class=\"ds-field\"><span>Supplier name</span><input type=\"text\" placeholder=\"Example: Atlas Medical\"></label>",
-      "css": ".ds-field { display: flex; flex-direction: column; gap: 7px; color: var(--ink); font: 620 14px/1.4 Inter, ui-sans-serif, system-ui, sans-serif; } .ds-field input { width: 100%; min-height: 49px; padding: 11px 13px; border: 1px solid #bdbdb9; border-radius: 8px; background: var(--white); color: var(--ink); font: 400 16px/1.5 Inter, ui-sans-serif, system-ui, sans-serif; transition: border-color 160ms ease, box-shadow 160ms ease; } .ds-field input::placeholder { color: #5d5d5a; opacity: 1; } .ds-field input:hover { border-color: var(--ink); } .ds-field input:focus { border-color: var(--ink); box-shadow: 0 0 0 2px #e5e5e3; outline: 0; } @media (prefers-reduced-motion: reduce) { .ds-field input { transition-duration: 0.01ms; } }"
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 7px; color: var(--ink); font: 620 14px/1.4 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif; } .ds-field input { width: 100%; min-height: 49px; padding: 11px 13px; border: 1px solid #bdbdb9; border-radius: 8px; background: var(--white); color: var(--ink); font: 400 16px/1.5 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif; transition: border-color 160ms ease, box-shadow 160ms ease; } .ds-field input::placeholder { color: #5d5d5a; opacity: 1; } .ds-field input:hover { border-color: var(--ink); } .ds-field input:focus { border-color: var(--ink); box-shadow: 0 0 0 2px #e5e5e3; outline: 0; } @media (prefers-reduced-motion: reduce) { .ds-field input { transition-duration: 0.01ms; } }"
     },
     {
       "name": "Progressive Disclosure",
       "kind": "custom",
       "description": "Native details reveal hashes and trust notes only when requested.",
       "html": "<details class=\"ds-disclosure\"><summary>Inspect signed closure manifest</summary><div class=\"ds-disclosure-body\"><p>Three commitments are bound to this root.</p><code>4cf5…e081</code></div></details>",
-      "css": ".ds-disclosure { margin-top: 23px; padding-top: 17px; border-top: 1px solid var(--line); } .ds-disclosure summary { width: fit-content; color: var(--ink); cursor: pointer; font: 610 14px/1.5 Inter, ui-sans-serif, system-ui, sans-serif; text-underline-offset: 4px; } .ds-disclosure summary:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; } .ds-disclosure-body { max-width: 680px; padding: 12px 0 2px; color: var(--muted); font: 400 14px/1.5 Inter, ui-sans-serif, system-ui, sans-serif; } .ds-disclosure-body code { display: block; overflow-wrap: anywhere; padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); font: 400 13px/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }"
+      "css": ".ds-disclosure { margin-top: 23px; padding-top: 17px; border-top: 1px solid var(--line); } .ds-disclosure summary { width: fit-content; color: var(--ink); cursor: pointer; font: 610 14px/1.5 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif; text-underline-offset: 4px; } .ds-disclosure summary:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; } .ds-disclosure-body { max-width: 680px; padding: 12px 0 2px; color: var(--muted); font: 400 14px/1.5 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif; } .ds-disclosure-body code { display: block; overflow-wrap: anywhere; padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); font: 400 13px/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }"
     },
     {
       "name": "Closure Confirmation",
       "kind": "custom",
       "description": "A ruled pre-sign summary that makes receipt count and omission selection explicit.",
       "html": "<div class=\"ds-closure\"><h3>Confirm tender closure</h3><p>4 acknowledged receipts; 3 will be included in the signed accepted set.</p><p>Omission challenge selected: one synthetic bid will be left out deliberately.</p><button class=\"ds-btn-primary\">Confirm and sign accepted set</button></div>",
-      "css": ".ds-closure { margin-top: 23px; padding: 19px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); color: var(--ink); } .ds-closure h3 { margin: 0 0 8px; font: 650 18px/1.3 Inter, ui-sans-serif, system-ui, sans-serif; } .ds-closure p { margin: 0; color: var(--muted); font: 400 15px/1.5 Inter, ui-sans-serif, system-ui, sans-serif; } .ds-closure p + p { margin-top: 7px; } .ds-closure .ds-btn-primary { margin-top: 18px; }"
+      "css": ".ds-closure { margin-top: 23px; padding: 19px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); color: var(--ink); } .ds-closure h3 { margin: 0 0 8px; font: 650 18px/1.3 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif; } .ds-closure p { margin: 0; color: var(--muted); font: 400 15px/1.5 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif; } .ds-closure p + p { margin-top: 7px; } .ds-closure .ds-btn-primary { margin-top: 18px; }"
     }
   ],
   "narrative": {
     "northStar": "The Quiet Evidence Thread",
     "overview": "BlindTender is a chain-of-custody instrument for one procurement event. A five-stage line keeps rules, bids, closure, award, and payment connected; a centered work area gives the current task room to read. The visual direction follows the user-pinned black-and-white discipline, clear large type, generous whitespace, rounded high-contrast controls, and short purposeful transitions. It takes the cited PamoSafe interface as a mood and layout reference without using its branding or content.\n\nThe interface stays flat and legible. Fine gray rules organize evidence rows and separate sections, while role and stage controls make the active state clear. Hashes, proofs, and trust notes remain in disclosure sections until a user asks to inspect them. Each screen focuses on its current task instead of presenting the complete operating model.\n\nMotion marks a state change and then stops: controls respond quickly, the evidence line advances, and the active workspace enters once. Reduced-motion preferences remove the movement and smooth scrolling.",
-    "keyCharacteristics": ["Strictly monochrome, high-contrast surfaces.", "One centered task area with evidence details progressively disclosed.", "A persistent five-stage evidence thread.", "Quiet, finite motion with reduced-motion support."],
-    "rules": [
-      {"name": "The Monochrome Rule", "body": "Keep hierarchy and state in ink, neutral tints, line position, and text labels. Do not add a chromatic accent.", "section": "colors"},
-      {"name": "The Task-First Type Rule", "body": "Give the current task the largest type on the screen. Keep evidence labels clear and readable; do not shrink hashes or statuses to create density.", "section": "typography"},
-      {"name": "The Flat Evidence Rule", "body": "Use whitespace and fine rules to group evidence. Do not add card stacks, drop shadows, or decorative dashboard chrome.", "section": "elevation"}
+    "keyCharacteristics": [
+      "Strictly monochrome, high-contrast surfaces.",
+      "One centered task area with evidence details progressively disclosed.",
+      "A persistent five-stage evidence thread.",
+      "Quiet, finite motion with reduced-motion support."
     ],
-    "dos": ["Do keep the page monochrome and reserve Working Ink for emphasis, selected states, and primary actions.", "Do keep one primary task in view and reveal hashes, proofs, bid details, and trust notes through labeled disclosures.", "Do keep the five-stage evidence thread visible and make its current stage clear to sighted and assistive-technology users.", "Do wrap hashes and preserve their ability to be selected and copied.", "Do keep transitions short and honor prefers-reduced-motion for animation, transitions, and scrolling."],
-    "donts": ["Don't introduce blue, green, red, or another accent hue into the interface.", "Don't turn evidence into decorative terminal chrome, dense dashboard cards, or tiny labels.", "Don't show every bid detail, hash, proof, and trust explanation in the default view.", "Don't rely on color alone to communicate an outcome.", "Don't use perpetual or attention-seeking animation."]
+    "rules": [
+      {
+        "name": "The Monochrome Rule",
+        "body": "Keep hierarchy and state in ink, neutral tints, line position, and text labels. Do not add a chromatic accent.",
+        "section": "colors"
+      },
+      {
+        "name": "The Task-First Type Rule",
+        "body": "Give the current task the largest type on the screen. Keep evidence labels clear and readable; do not shrink hashes or statuses to create density.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Evidence Rule",
+        "body": "Use whitespace and fine rules to group evidence. Do not add card stacks, drop shadows, or decorative dashboard chrome.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep the page monochrome and reserve Working Ink for emphasis, selected states, and primary actions.",
+      "Do keep one primary task in view and reveal hashes, proofs, bid details, and trust notes through labeled disclosures.",
+      "Do keep the five-stage evidence thread visible and make its current stage clear to sighted and assistive-technology users.",
+      "Do wrap hashes and preserve their ability to be selected and copied.",
+      "Do keep transitions short and honor prefers-reduced-motion for animation, transitions, and scrolling."
+    ],
+    "donts": [
+      "Don't introduce blue, green, red, or another accent hue into the interface.",
+      "Don't turn evidence into decorative terminal chrome, dense dashboard cards, or tiny labels.",
+      "Don't show every bid detail, hash, proof, and trust explanation in the default view.",
+      "Don't rely on color alone to communicate an outcome.",
+      "Don't use perpetual or attention-seeking animation."
+    ]
   }
 }

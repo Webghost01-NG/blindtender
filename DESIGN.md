@@ -12,32 +12,32 @@ colors:
   focus: "#111"
 typography:
   display:
-    fontFamily: "Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontFamily: "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
     fontSize: "46px"
     fontWeight: 620
     lineHeight: 1.08
     letterSpacing: "-0.04em"
   headline:
-    fontFamily: "Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontFamily: "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
     fontSize: "22px"
     fontWeight: 650
     lineHeight: 1.25
     letterSpacing: "-0.025em"
   title:
-    fontFamily: "Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontFamily: "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
     fontSize: "19px"
     fontWeight: 650
   body:
-    fontFamily: "Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontFamily: "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
     fontSize: "16px"
     fontWeight: 400
     lineHeight: 1.5
   label:
-    fontFamily: "Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontFamily: "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
     fontSize: "14px"
     fontWeight: 600
   action:
-    fontFamily: "Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontFamily: "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
     fontSize: "15px"
     fontWeight: 620
     lineHeight: 1.2
@@ -109,8 +109,8 @@ The palette uses working black, white, and a small range of neutral grays; statu
 
 ## Typography
 
-- **Display Font:** Inter (with the system sans-serif fallback stack)
-- **Body Font:** Inter (with the system sans-serif fallback stack)
+- **Display Font:** System UI sans-serif stack
+- **Body Font:** System UI sans-serif stack
 - **Label/Mono Font:** System sans-serif for labels; system monospace for hashes.
 
 **Character:** Direct, open, and quietly operational. Large, tightly tracked task headings pair with readable body copy; labels and evidence metadata stay plain and compact.
