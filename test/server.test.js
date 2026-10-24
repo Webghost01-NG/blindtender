@@ -54,3 +54,12 @@ test("server requires JSON content type for state-changing routes", async (conte
   assert.equal(response.status, 400);
   assert.equal((await response.json()).error, "Content-Type must be application/json");
 });
+
+test("server never exposes the confidential audit package over GET", async (context) => {
+  const server = createBlindTenderServer();
+  await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
+  context.after(() => server.close());
+  const address = server.address();
+  const response = await fetch(`http://127.0.0.1:${address.port}/api/audit-package`);
+  assert.equal(response.status, 404);
+});

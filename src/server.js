@@ -89,10 +89,6 @@ async function api(request, response, url) {
     sendJson(response, 200, service.omissionChallenge(challengeMatch[1]));
     return true;
   }
-  if (request.method === "GET" && url.pathname === "/api/audit-package") {
-    sendJson(response, 200, service.auditPackage());
-    return true;
-  }
   if (request.method === "POST" && url.pathname === "/api/verify-audit-package") {
     sendJson(response, 200, verifyAuditPackage(await readJson(request)));
     return true;
