@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node src/server.js",
     "test": "node --test",
-    "check": "node --check src/server.js",
+    "check": "node --check src/server.js && node --check public/crypto.js",
     "audit:verify": "node scripts/verify-audit-package.js",
     "demo:award": "node scripts/create-demo-award.js",
     "zcash:preflight": "node scripts/zcash-preflight.js",
