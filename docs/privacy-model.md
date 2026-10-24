@@ -2,7 +2,7 @@
 
 | Actor | Can see | Cannot infer from BlindTender alone |
 | --- | --- | --- |
-| Public observer | Event ID, rules hash, signed closure root, winner commitment, award hash, public settlement state and transaction ID | Losing bid contents, supplier identities, shielded recipient, amount, or memo |
+| Public observer | Event ID, rules hash, signed closure root, signed winner commitment and award hash, public settlement state and transaction ID | Bid prices, eligible bid list, supplier identities, shielded recipient, amount, or memo |
 | Competing supplier | Its own bid, salt, receipt, inclusion proof, and permitted event outcome | Other suppliers' bid contents or settlement details |
 | Operator and buyer | Every opened bid, receipt order, eligibility inputs, award calculation, and payer-wallet settlement evidence | Whether goods or services were delivered |
 | Authorized auditor | Only the confidential verification package deliberately provided for a dispute | Undisclosed application metadata or unrelated wallet history |

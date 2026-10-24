@@ -4,9 +4,9 @@ The server binds to loopback by default and keeps its operator keys and tender s
 
 | Method | Route | Purpose |
 | --- | --- | --- |
-| `GET` | `/api/state` | Current phase, signed public artifacts, and settlement state |
+| `GET` | `/api/state` | Current phase, signed public artifacts, and settlement state; omits winning price and eligible bid list |
 | `GET` | `/api/event-keys` | Browser encryption key, operator verification key, and rules hash |
-| `GET` | `/api/public-evidence` | Bid-safe rules, closure, award, and settlement references |
+| `GET` | `/api/public-evidence` | Bid-safe rules, closure, signed award reference, and settlement references |
 | `POST` | `/api/bids` | Submit an encrypted envelope and receive a signed acknowledgment |
 | `POST` | `/api/close` | Open, verify, freeze, and deterministically award the tender |
 | `GET` | `/api/evidence/:bidId` | Supplier receipt and post-close inclusion proof |
@@ -17,6 +17,8 @@ The server binds to loopback by default and keeps its operator keys and tender s
 | `POST` | `/api/reset` | Reset disposable in-memory demo state |
 
 Mutation requests require `Content-Type: application/json`. Errors have a stable `code` and a human-readable `error`. The audit-package verifier returns only verification results; there is no public GET route that returns confidential eligible bids.
+
+The public award reference contains only the event ID, award-decision hash, and winner commitment. The complete award decision—including the winning price and eligible commitment list—is limited to the operator closure response and a restricted audit package.
 
 ## Browser submission
 

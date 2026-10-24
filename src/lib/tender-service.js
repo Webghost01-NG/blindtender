@@ -15,6 +15,7 @@ export class TenderService {
     this.phase = "open";
     this.closure = null;
     this.award = null;
+    this.publicAward = null;
     this.settlement = null;
     this.settlementHistory = [];
     this.eventConfig = {
@@ -34,7 +35,7 @@ export class TenderService {
 
   publicState() {
     return {
-      award: this.award,
+      award: this.publicAward,
       closure: this.closure ? { manifest: this.closure.manifest, signature: this.closure.signature } : null,
       event: { ...this.eventConfig, encryptionPublicKey: undefined, operatorSigningKey: undefined },
       operatorSigningKey: this.keys.signingPublicKey,
@@ -48,12 +49,7 @@ export class TenderService {
 
   publicEvidence() {
     return {
-      award: this.award ? {
-        awardDecisionHash: this.award.awardDecisionHash,
-        eventId: this.award.payload.eventId,
-        signature: this.award.signature,
-        winnerCommitment: this.award.payload.winnerCommitment,
-      } : null,
+      award: this.publicAward,
       closure: this.closure ? {
         manifest: this.closure.manifest,
         signature: this.closure.signature,
@@ -142,6 +138,15 @@ export class TenderService {
     this.phase = "awarded";
     this.closure = { manifest, signature: manifestSignature, proofs };
     this.award = { payload: awardDecision, signature: awardSignature, awardDecisionHash };
+    const publicAwardPayload = {
+      awardDecisionHash,
+      eventId: awardDecision.eventId,
+      winnerCommitment: awardDecision.winnerCommitment,
+    };
+    this.publicAward = {
+      payload: publicAwardPayload,
+      signature: signObject("blindtender:public-award-reference:v1", publicAwardPayload, this.keys.signingPrivateKey),
+    };
     this.opened = opened;
     return { award: this.award, closure: this.closure };
   }

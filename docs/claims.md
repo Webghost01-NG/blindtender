@@ -7,6 +7,7 @@
 | The declared accepted set is frozen | Signed closure manifest and Merkle-root tests | Does not prove completeness before closure |
 | A supplier can verify inclusion | Per-commitment Merkle proof | Absence is challenge evidence, not automatic enforcement |
 | Award is reproducible | Offline audit-package verifier | Requires authorized disclosure of eligible bids |
+| Public award metadata omits commercial terms | Signed public award reference contains the event ID, award hash, and winner commitment | The operator receives the full award decision; authorized auditors receive disclosed eligible bids |
 | Award and settlement are linked | Award-decision hash in recipient-visible memo | A public transaction ID alone proves neither memo nor recipient |
 | Settlement status is honest | Enforced five-state lifecycle | Wallet and node observations remain dependencies |
 | Payment details are shielded | Recipient detects a v6 Ironwood regtest transaction with zero transparent inputs and outputs | Local regtest is not public testnet |
