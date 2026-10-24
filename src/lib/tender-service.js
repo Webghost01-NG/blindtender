@@ -46,6 +46,32 @@ export class TenderService {
     };
   }
 
+  publicEvidence() {
+    return {
+      award: this.award ? {
+        awardDecisionHash: this.award.awardDecisionHash,
+        eventId: this.award.payload.eventId,
+        signature: this.award.signature,
+        winnerCommitment: this.award.payload.winnerCommitment,
+      } : null,
+      closure: this.closure ? {
+        manifest: this.closure.manifest,
+        signature: this.closure.signature,
+      } : null,
+      event: {
+        deadline: this.eventConfig.deadline,
+        eventId: this.eventConfig.eventId,
+        rulesHash: this.rulesHash,
+      },
+      operatorSigningKey: this.keys.signingPublicKey,
+      settlement: this.settlement ? {
+        network: this.settlement.payload.network,
+        state: this.settlement.payload.state,
+        transactionId: this.settlement.payload.transactionId,
+      } : null,
+    };
+  }
+
   submit({ bidId, commitment, envelope }) {
     if (this.phase !== "open") throw new Error("Tender is closed");
     validateCommitment(commitment);

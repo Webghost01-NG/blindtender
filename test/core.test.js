@@ -54,6 +54,15 @@ test("award is deterministic and earliest receipt breaks exact tie", () => {
   assert.equal(result.award.payload.winningAmountMinor, 4_820_000);
 });
 
+test("public evidence excludes bid amounts, aliases, salts, and private keys", () => {
+  const service = new TenderService();
+  submit(service, bid("atlas-001", 4_820_000));
+  service.close();
+  const serialized = JSON.stringify(service.publicEvidence());
+  assert.doesNotMatch(serialized, /4820000|Atlas Medical|salt|PRIVATE KEY/);
+  assert.match(serialized, /winnerCommitment|acceptedBidMerkleRoot/);
+});
+
 test("tampered encrypted bid is rejected at opening", () => {
   const service = new TenderService();
   const value = bid("atlas-001", 4_820_000);

@@ -58,6 +58,10 @@ async function api(request, response, url) {
     });
     return true;
   }
+  if (request.method === "GET" && url.pathname === "/api/public-evidence") {
+    sendJson(response, 200, service.publicEvidence());
+    return true;
+  }
   if (request.method === "POST" && url.pathname === "/api/reset") {
     service = new TenderService();
     sendJson(response, 200, service.publicState());
