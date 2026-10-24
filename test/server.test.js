@@ -10,6 +10,9 @@ test("server exposes event rules and no-store API state", async (context) => {
   const response = await fetch(`http://127.0.0.1:${address.port}/api/state`);
   assert.equal(response.status, 200);
   assert.equal(response.headers.get("cache-control"), "no-store");
+  assert.equal(response.headers.get("x-content-type-options"), "nosniff");
+  assert.equal(response.headers.get("x-frame-options"), "DENY");
+  assert.match(response.headers.get("content-security-policy"), /default-src 'self'/);
   const state = await response.json();
   assert.equal(state.phase, "open");
   assert.equal(state.event.eventId, "medical-supplies-2026");

@@ -16,8 +16,20 @@ const contentTypes = {
   ".svg": "image/svg+xml",
 };
 
+const securityHeaders = {
+  "Content-Security-Policy": "default-src 'self'; connect-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
+  "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=()",
+  "Referrer-Policy": "no-referrer",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY",
+};
+
+function writeHeaders(response, status, headers = {}) {
+  response.writeHead(status, { ...securityHeaders, ...headers });
+}
+
 function sendJson(response, status, value) {
-  response.writeHead(status, { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" });
+  writeHeaders(response, status, { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" });
   response.end(JSON.stringify(value));
 }
 
@@ -80,7 +92,7 @@ async function staticFile(response, pathname) {
   if (!target.startsWith(`${publicRoot}/`) && target !== publicRoot) return false;
   try {
     const body = await readFile(target);
-    response.writeHead(200, { "Content-Type": contentTypes[extname(target)] ?? "application/octet-stream" });
+    writeHeaders(response, 200, { "Content-Type": contentTypes[extname(target)] ?? "application/octet-stream" });
     response.end(body);
     return true;
   } catch (error) {
