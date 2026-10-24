@@ -1,0 +1,17 @@
+{
+  "regions": [
+    {"id":"header-shell","kind":"chrome","pixelBox":{"x":30,"y":17,"w":1380,"h":78},"note":"floating capsule navigation"},
+    {"id":"brand","kind":"text","pixelBox":{"x":68,"y":39,"w":164,"h":31},"note":"BlindTender wordmark"},
+    {"id":"event-title","kind":"text","pixelBox":{"x":320,"y":43,"w":304,"h":25},"note":"event title"},
+    {"id":"role-switcher","kind":"control","pixelBox":{"x":982,"y":34,"w":335,"h":48},"note":"three-role segmented control"},
+    {"id":"demo-label","kind":"text","pixelBox":{"x":1305,"y":47,"w":105,"h":20},"note":"synthetic demo label"},
+    {"id":"stage-thread","kind":"chrome","pixelBox":{"x":214,"y":144,"w":1090,"h":122},"note":"five-stage security thread and labels"},
+    {"id":"task-heading","kind":"text","pixelBox":{"x":210,"y":334,"w":930,"h":72},"note":"Freeze the accepted bid set"},
+    {"id":"task-summary","kind":"text","pixelBox":{"x":210,"y":430,"w":1060,"h":65},"note":"closure task explanation"},
+    {"id":"commitment-list","kind":"chrome","pixelBox":{"x":210,"y":530,"w":1115,"h":224},"note":"three accepted commitment rows"},
+    {"id":"primary-action","kind":"control","pixelBox":{"x":210,"y":786,"w":380,"h":66},"note":"close and sign button"},
+    {"id":"secondary-action","kind":"control","pixelBox":{"x":608,"y":786,"w":205,"h":66},"note":"review rules button"},
+    {"id":"evidence-disclosure","kind":"control","pixelBox":{"x":210,"y":884,"w":1115,"h":62},"note":"closed evidence details disclosure"},
+    {"id":"privacy-note","kind":"text","pixelBox":{"x":210,"y":908,"w":860,"h":36},"note":"privacy boundary note"}
+  ]
+}
