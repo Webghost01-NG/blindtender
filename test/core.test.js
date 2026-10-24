@@ -5,6 +5,7 @@ import { bidCommitment, createOperatorKeys, encryptBidForOperator, signObject, v
 import { buildMerkleTree, verifyMerkleProof } from "../src/lib/merkle.js";
 import { canonicalBid } from "../src/lib/schema.js";
 import { TenderService } from "../src/lib/tender-service.js";
+import { verifyAuditPackage } from "../src/lib/verify.js";
 
 function bid(bidId, amountMinor, supplierAlias = "Atlas Medical") {
   return { amountMinor, bidId, currency: "USD", deliveryDays: 14, eventId: "medical-supplies-2026", schemaVersion: "blindtender.bid.v1", supplierAlias };
@@ -93,4 +94,30 @@ test("restricted audit package contains sufficient inputs to recompute the award
   assert.equal(audit.disclosedEligibleBids.length, 2);
   assert.match(audit.warning, /confidential/);
   assert.equal(audit.award.payload.winningAmountMinor, 4_820_000);
+  assert.deepEqual(verifyAuditPackage(audit), {
+    checks: {
+      awardDecisionHash: true,
+      awardSignature: true,
+      closureSignature: true,
+      commitments: true,
+      inclusionProofs: true,
+      receipts: true,
+      reproducibleAward: true,
+      rulesHash: true,
+    },
+    valid: true,
+  });
+});
+
+test("audit verification identifies a modified losing bid", () => {
+  const service = new TenderService();
+  submit(service, bid("atlas-001", 4_820_000));
+  submit(service, bid("cedar-001", 4_930_000, "Cedar Supply"));
+  service.close();
+  const audit = service.auditPackage();
+  audit.disclosedEligibleBids[1].bid.amountMinor = 4_700_000;
+  const verification = verifyAuditPackage(audit);
+  assert.equal(verification.valid, false);
+  assert.equal(verification.checks.commitments, false);
+  assert.equal(verification.checks.reproducibleAward, false);
 });
