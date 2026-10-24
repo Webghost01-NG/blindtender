@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="A confidential tender with signed receipts, a frozen bid set, reproducible awards, and shielded Zcash settlement references.">
+    <title>BlindTender — Medical supplies</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles.css">
+    <script type="module" src="/app.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="wordmark" href="/" aria-label="BlindTender home">BlindTender<span class="wordmark-period">.</span></a>
+      <div class="event-name">
+        <span class="event-indicator" aria-hidden="true"></span>
+        <span id="event-title">Connecting to tender</span>
+      </div>
+      <div class="role-control" role="group" aria-label="Choose a demo role">
+        <button type="button" class="role-button" data-role="supplier" aria-pressed="false">Supplier</button>
+        <button type="button" class="role-button" data-role="buyer" aria-pressed="true">Buyer</button>
+        <button type="button" class="role-button" data-role="auditor" aria-pressed="false">Auditor</button>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <nav class="stage-nav" aria-label="Tender stages">
+        <ol class="stage-list">
+          <li><button type="button" class="stage-button" data-stage="rules"><span class="stage-dot" aria-hidden="true"></span><span>Rules</span></button></li>
+          <li><button type="button" class="stage-button" data-stage="submissions" aria-current="step"><span class="stage-dot" aria-hidden="true"></span><span>Bids</span></button></li>
+          <li><button type="button" class="stage-button" data-stage="closure"><span class="stage-dot" aria-hidden="true"></span><span>Closure</span></button></li>
+          <li><button type="button" class="stage-button" data-stage="award"><span class="stage-dot" aria-hidden="true"></span><span>Award</span></button></li>
+          <li><button type="button" class="stage-button" data-stage="settlement"><span class="stage-dot" aria-hidden="true"></span><span>Payment</span></button></li>
+        </ol>
+        <span class="stage-progress" aria-hidden="true"></span>
+      </nav>
+
+      <section class="workspace" aria-labelledby="page-title">
+        <div class="workspace-heading">
+          <div>
+            <h1 id="page-title" tabindex="-1">Collect sealed offers</h1>
+            <p id="page-description">Each supplier keeps its price private while the submission window is open.</p>
+          </div>
+          <span class="demo-label">Synthetic demo</span>
+        </div>
+
+        <div id="flash-message" class="flash-message" role="status" aria-live="polite" hidden></div>
+        <div id="stage-content" class="stage-content">
+          <div class="loading-state" aria-label="Loading tender">
+            <span class="loading-line loading-line--wide" aria-hidden="true"></span>
+            <span class="loading-line" aria-hidden="true"></span>
+            <span class="loading-line loading-line--short" aria-hidden="true"></span>
+            <p>Opening the local tender record…</p>
+          </div>
+        </div>
+
+        <footer class="privacy-footer">
+          <p>Competing suppliers stay blind to bid details. Public records show the signed closure root and award reference.</p>
+          <details class="privacy-details">
+            <summary>Who can see what</summary>
+            <dl>
+              <div><dt>Supplier</dt><dd>Its own bid, salt, receipt and inclusion result.</dd></div>
+              <div><dt>Buyer</dt><dd>All bids when the window closes, plus the award decision.</dd></div>
+              <div><dt>Auditor</dt><dd>Only the restricted package deliberately shared for review.</dd></div>
+              <div><dt>Public</dt><dd>Signed rules, closure root, award reference and settlement status.</dd></div>
+            </dl>
+          </details>
+        </footer>
+      </section>
+    </main>
+
+    <noscript><p class="noscript-note">BlindTender needs JavaScript to seal bids and verify tender evidence.</p></noscript>
+  </body>
+</html>
