@@ -8,6 +8,7 @@
     "start": "node src/server.js",
     "test": "node --test",
     "check": "node --check src/server.js",
+    "audit:verify": "node scripts/verify-audit-package.js",
     "demo:award": "node scripts/create-demo-award.js",
     "zcash:preflight": "node scripts/zcash-preflight.js",
     "zcash:regtest": "node scripts/zcash-regtest-proof.js"
